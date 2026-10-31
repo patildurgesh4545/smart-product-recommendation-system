@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Terms and conditions | TechScout{% endblock %}
+{% block main %}
+<div class="legal">
+<h1 class="page-title">Terms and conditions</h1>
+<p class="muted">Last updated {{ updated }}</p>
+<p>By using TechScout you agree to these terms. If you do not agree, please do not use the site.</p>
+
+<h2>What this site is</h2>
+<p>TechScout lets you search and filter a snapshot of {{ region }} product listings taken from a public dataset. It is not a shop. You cannot buy anything here, and the site is not affiliated with, endorsed by or sponsored by Amazon.</p>
+
+<h2>Accuracy of information</h2>
+<p>Prices, discounts, ratings and descriptions come from the dataset as it was collected and may be out of date, incomplete or different from what {{ market }} shows now. Some products have no rating or rating count in the data, and the site shows them as unavailable rather than estimating them. Check the current price, availability and details on {{ market }} before you decide to buy. The information is provided as is, without warranties of any kind.</p>
+
+<h2>Dataset licence and attribution</h2>
+<p>The data comes from the {% if ds_url %}<a href="{{ ds_url }}" rel="noopener noreferrer">{{ ds_name }}</a> on Kaggle{% else %}{{ ds_name }}{% endif %}{% if ds_license %}, published under {{ ds_license }}. If you reuse the data, you must follow the terms of that licence, including its rules on attribution{% else %}. The dataset's own licence terms apply to any reuse of the data, so check them before you reuse it{% endif %}.</p>
+
+<h2>Trademarks and product content</h2>
+<p>Amazon, {{ market }} and product names, images and descriptions belong to their respective owners. They appear here only to identify the listings in the dataset.</p>
+
+<h2>Acceptable use</h2>
+<p>Do not attempt to disrupt the site, probe it for security weaknesses, or send automated requests at a rate that affects other visitors.</p>
+
+<h2>External links</h2>
+<p>Links to {{ market }} lead to a site we do not control. We are not responsible for its content or practices.</p>
+
+<h2>Limitation of liability</h2>
+<p>To the extent the law allows, the site operator is not liable for any loss arising from your use of this site or from relying on the information on it.</p>
+<h2>For any query contact</h2>
+<p>If you have any questions or concerns about these terms, please contact to mail:- khelwadeom@gmail.com, contact no: +91 9529392363, ig:- @khelwadeom_33{% if contact %} at <a href="mailto:{{ contact }}">Khelwadeom@gmail.com</a>{% endif %}.</p>
+
+<h2>Changes and contact</h2>
+<p>We may update these terms, and the date above will change when we do. Questions can be sent to the site operator to om khelwade{% if contact %} at <a href="mailto:{{ contact }}">+91 9529392363</a>{% endif %}.</p>
+</div>
+{% endblock %}

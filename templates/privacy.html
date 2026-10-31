@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Privacy policy | TechScout{% endblock %}
+{% block main %}
+<div class="legal">
+<h1 class="page-title">Privacy policy</h1>
+<p class="muted">Last updated {{ updated }}</p>
+<p>TechScout is a read-only tool for browsing a public dataset of {{ region }} product listings. This policy describes what the site does with information about you. It is short because the site collects very little.</p>
+
+<h2>What we do not collect</h2>
+<p>There are no accounts, sign-up forms, comments or checkout on this site. We do not set cookies, and we do not use analytics, advertising or tracking tools.</p>
+
+<h2>What is stored in your browser</h2>
+<p>The site saves two things in your browser's local storage: your choice of light or dark mode, and the list of products you add to compare (up to four product IDs). This stays on your device and is never sent to our server. Clearing the site data in your browser removes it.</p>
+
+<h2>What the server receives</h2>
+<p>When you search or apply filters, your search words and filter choices are sent to our server as part of the page address so that it can return matching products. The application does not save them. Like most web servers, the server writes standard access logs that include your IP address, the time of the request and the address requested. We use these logs only to keep the site running and to investigate abuse or faults. How long logs are kept depends on the hosting setup used by the site operator.</p>
+
+<h2>Third parties</h2>
+<p>Product images are loaded directly from Amazon's servers. Amazon therefore receives your IP address and browser details when an image loads, as it would for any image request. We ask your browser not to send the address of the page you are on. Links to {{ market }} take you off this site, and Amazon's own privacy notice applies there.</p>
+
+<h2>Reviewer information in the source data</h2>
+<p>Datasets of Amazon listings can include review text and identifiers of the people who wrote reviews. This site does not display, serve or search any such information. It uses only product names, categories, prices, ratings, rating or review counts, descriptions and product images from the dataset.</p>
+
+<h2>Children</h2>
+<p>The site is not directed at children and does not knowingly collect information from them.</p>
+
+<h2>Your choices</h2>
+<p>Because the site holds no personal profile about you, there is nothing to correct or delete beyond server logs. If you want to ask about logs that relate to you, or have any question about this policy, contact the site operator{% if contact %} at <a href="mailto:{{ contact }}">{{ contact }}</a>{% endif %}.</p>
+
+<h2>Changes</h2>
+<p>If the site starts handling information differently, this page will be updated and the date above will change.</p>
+</div>
+{% endblock %}

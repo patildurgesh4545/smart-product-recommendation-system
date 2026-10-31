@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Product | TechScout{% endblock %}
+{% block main %}
+<p class="crumb"><a href="/">Back to all products</a></p>
+<article id="product" data-id="{{ pid }}"><p>Loading product</p></article>
+<section id="similar-wrap" hidden>
+  <h2>Similar products</h2>
+  <ul id="similar" class="grid"></ul>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='product.js') }}"></script>{% endblock %}

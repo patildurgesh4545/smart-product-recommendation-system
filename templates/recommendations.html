@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Recommendations | TechScout{% endblock %}
+{% block main %}
+<h1 class="page-title">Recommendations</h1>
+<p id="how" class="lede">Loading</p>
+<form id="recs-form" class="panel" autocomplete="off">
+  <div class="three">
+    <div><label for="mode">Show me</label>
+      <select id="mode" name="mode"><option value="quality">Best rated, weighted by number of ratings</option><option value="deals">Biggest discounts on above-average products</option></select></div>
+    <div><label for="category">Category</label><select id="category" name="category"><option value="">All categories</option></select></div>
+    <div><label for="max_price">Maximum budget ({{ currency }})</label><input id="max_price" name="max_price" type="number" min="0" step="1" inputmode="numeric"></div>
+  </div>
+</form>
+<p id="count" class="count" aria-live="polite"></p>
+<ul id="grid" class="grid"></ul>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='recs.js') }}"></script>{% endblock %}

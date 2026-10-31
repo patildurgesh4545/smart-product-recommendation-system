@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+<h1 class="page-title">Find a product</h1>
+<p class="lede">Search a snapshot of {{ region }} listings by name, category, budget, rating and brand.</p>
+<form id="home-form" class="panel" action="/search" method="get">
+  <label for="q">Product name, brand or category</label>
+  <input id="q" name="q" type="search" maxlength="100" placeholder="For example: mixer grinder, boAt, USB cable">
+  <div class="four">
+    <div><label for="category">Category</label><select id="category" name="category"><option value="">All categories</option></select></div>
+    <div><label for="max_price">Maximum budget ({{ currency }})</label><input id="max_price" name="max_price" type="number" min="0" step="1" inputmode="numeric"></div>
+    <div><label for="min_rating">Minimum rating</label>
+      <select id="min_rating" name="min_rating"><option value="">Any rating</option><option value="4">4 and above</option><option value="3">3 and above</option><option value="2">2 and above</option></select></div>
+    <div><label for="brand">Brand</label><select id="brand" name="brand"><option value="">All brands</option></select></div>
+  </div>
+  <div class="panel-foot">
+    <p class="muted">Brand is taken from the first word of each product name, because the dataset has no brand column.</p>
+    <div class="row"><button type="reset" class="btn">Reset filters</button><button type="submit" class="btn primary">Search products</button></div>
+  </div>
+</form>
+
+<h2 class="section">Browse by sub-category</h2>
+<ul id="tiles" class="tiles"></ul>
+
+<div class="section-head"><h2 class="section">Most rated products</h2><a href="/search">View all products</a></div>
+<ul id="grid" class="grid"></ul>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='home.js') }}"></script>{% endblock %}

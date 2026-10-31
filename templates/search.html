@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block main %}
+<h1 class="page-title">Search and filters</h1>
+<form id="filters" class="layout" role="search" autocomplete="off">
+  <aside class="rail" aria-label="Filters">
+    <label for="q">Search</label>
+    <input id="q" name="q" type="search" maxlength="100" placeholder="Name or category">
+    <label for="category">Category</label>
+    <select id="category" name="category"><option value="">All categories</option></select>
+    <fieldset>
+      <legend>Price ({{ currency }})</legend>
+      <div class="pair">
+        <div><label for="min_price">From</label><input id="min_price" name="min_price" type="number" min="0" step="1" inputmode="numeric"></div>
+        <div><label for="max_price">To</label><input id="max_price" name="max_price" type="number" min="0" step="1" inputmode="numeric"></div>
+      </div>
+    </fieldset>
+    <label for="subcategory">Sub-category</label>
+    <select id="subcategory" name="subcategory"><option value="">All sub-categories</option></select>
+    <label for="brand">Brand</label>
+    <select id="brand" name="brand"><option value="">All brands</option></select>
+    <label for="min_rating">Rating</label>
+    <select id="min_rating" name="min_rating">
+      <option value="">Any rating</option>
+      <option value="4">4 and above</option>
+      <option value="3">3 and above</option>
+      <option value="2">2 and above</option>
+    </select>
+    <label for="min_discount">Discount</label>
+    <select id="min_discount" name="min_discount">
+      <option value="">Any discount</option>
+      <option value="30">30% off or more</option>
+      <option value="50">50% off or more</option>
+      <option value="70">70% off or more</option>
+    </select>
+    <label for="sort">Sort by</label>
+    <select id="sort" name="sort">
+      <option value="popular">Most rated</option>
+      <option value="rating">Highest rating</option>
+      <option value="price_asc">Price, low to high</option>
+      <option value="price_desc">Price, high to low</option>
+      <option value="discount">Biggest discount</option>
+    </select>
+    <button type="button" id="reset" class="btn">Clear filters</button>
+  </aside>
+  <section aria-labelledby="count">
+    <p id="count" class="count" aria-live="polite">Loading products</p>
+    <ul id="grid" class="grid"></ul>
+    <nav id="pager" class="pager" aria-label="Pagination" hidden>
+      <button type="button" id="prev" class="btn">Previous</button>
+      <span id="pageinfo"></span>
+      <button type="button" id="next" class="btn">Next</button>
+    </nav>
+  </section>
+</form>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='catalog.js') }}"></script>{% endblock %}

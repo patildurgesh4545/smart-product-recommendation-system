@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Compare products | TechScout{% endblock %}
+{% block main %}
+<h1 class="page-title">Compare products</h1>
+<p id="cmp-status" class="lede" aria-live="polite">Loading</p>
+<div id="cmp-wrap" class="table-wrap" hidden></div>
+<p><button type="button" id="cmp-clear" class="btn" hidden>Clear comparison</button></p>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='compare.js') }}"></script>{% endblock %}

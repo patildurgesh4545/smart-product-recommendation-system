@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}TechScout{% endblock %}</title>
+  <meta name="description" content="{% block desc %}Search, filter and compare a public snapshot of {{ region }} product listings.{% endblock %}">
+  <script src="{{ url_for('static', filename='theme.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="/">TechScout</a>
+      <nav aria-label="Main" class="nav">
+        <a href="/"{% if request.path == '/' %} aria-current="page"{% endif %}>Home</a>
+        <a href="/search"{% if request.path == '/search' %} aria-current="page"{% endif %}>Search and filters</a>
+        <a href="/compare"{% if request.path == '/compare' %} aria-current="page"{% endif %}>Compare <span id="compare-count" class="count-badge" hidden>0</span></a>
+        <a href="/recommendations"{% if request.path == '/recommendations' %} aria-current="page"{% endif %}>Recommendations</a>
+      </nav>
+      <button type="button" id="theme" class="btn small">Dark mode</button>
+    </div>
+  </header>
+  <p id="notice" class="notice wrap" role="status" hidden></p>
+  <main class="wrap">{% block main %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Product data comes from the {% if ds_url %}<a href="{{ ds_url }}" rel="noopener noreferrer">{{ ds_name }}</a> on Kaggle{% else %}{{ ds_name }}{% endif %}{% if ds_license %}, licensed under {{ ds_license }}{% endif %}. Prices and ratings are a past snapshot and may differ on {{ market }} now.</p>
+      <p>TechScout is not affiliated with or endorsed by Amazon. Amazon and {{ market }} are trademarks of Amazon.com, Inc. or its affiliates.</p>
+      <p><a href="/privacy">Privacy policy</a> <a href="/terms">Terms and conditions</a></p>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='common.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
